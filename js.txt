@@ -1,0 +1,19 @@
+(function($) {
+  var defaults = {
+     text:"ˆ—‚ğŒp‘±‚µ‚Ä‚æ‚ë‚µ‚¢‚Å‚·‚©H"
+  };
+  
+  $.fn.confirm = function(params) {
+  
+    var config = $.extend({},defaults,params);
+    this.click(function(e){
+        if(!confirm(config.text)){
+           e.preventDefault();
+           e.stopImmediatePropagation();
+        }
+    });    
+    return this;
+  };
+})(jQuery);
+
+$("#tt").confirm({text:"HELLO?"}).click(function(){ console.log("done"); });
